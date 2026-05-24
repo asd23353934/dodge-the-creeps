@@ -34,3 +34,8 @@ func _on_message_timer_timeout() -> void:
 
 func _on_start_game() -> void:
 	pass # Replace with function body.
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept") and $StartButton.visible:
+		$StartButton.hide()
+		start_game.emit()

@@ -12,14 +12,17 @@ func new_game() -> void:
 	score = 0
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
-	$HUD.update_score(score) # ← 新增
-	$HUD.show_message("Get Ready!") # ← 新增
+	$HUD.update_score(score)
+	$HUD.show_message("Get Ready!")
+	$Music.play()
 
 
 func game_over() -> void:
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
+	$Music.stop()
+	$DeathSound.play()
 
 
 # --- Timer signal handlers ---
